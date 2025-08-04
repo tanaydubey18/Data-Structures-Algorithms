@@ -5,11 +5,13 @@ This repository contains solutions to various Data Structures and Algorithms pro
 ## 📁 Topics Covered
 
 ### [Arrays](./Arrays/)
-- **Intersection of Two Arrays** - Two-pointer technique
-- **Two Sum** - HashMap approach (coming soon)
-- **Maximum Subarray Sum** - Kadane's Algorithm (coming soon)
-- **Move Zeroes** - In-place array manipulation (coming soon)
-- **Rotate Array** - Multiple approaches (coming soon)
+- **Intersection of Two Arrays** - Two-pointer technique ✅
+- **Reverse the Array** - Two-pointer technique
+- **Find Maximum and Minimum Element** - Linear scan
+- **Sort Array of 0s, 1s, and 2s** - Dutch National Flag algorithm
+- **Largest Sum Contiguous Subarray** - Kadane's Algorithm
+- **Trapping Rain Water** - Two-pointer technique
+- **And 23 more array problems** - Comprehensive coverage
 
 ### [Linked Lists](./LinkedLists/) (coming soon)
 - Reverse Linked List
@@ -50,7 +52,7 @@ This repository contains solutions to various Data Structures and Algorithms pro
 
 ## 📊 Problem Statistics
 
-- **Total Problems**: 1 (and growing)
+- **Total Problems**: 1/30 (Arrays: 1/30, Others: coming soon)
 - **Topics Covered**: 1/6
 - **Languages**: Java
 
