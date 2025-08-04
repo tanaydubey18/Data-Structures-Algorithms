@@ -1,0 +1,21 @@
+public class Practice {
+
+    public static void main(String[] args) {
+        int Stocks[] = {7,0,5,3,9};
+
+        int Buyprice = Integer.MAX_VALUE;
+        
+        int profit = 0;
+
+        for (int i = 0; i < Stocks.length; i++) {
+            if (Stocks[i] > Buyprice) {
+                //Profit is Generated
+                profit = Math.max(profit, Stocks[i] - Buyprice);
+            }else{
+                Buyprice = Stocks[i];
+            }
+        }
+
+        System.out.println("Profit : " + profit);
+    }
+}
