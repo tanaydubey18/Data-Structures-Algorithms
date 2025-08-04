@@ -1,0 +1,50 @@
+public class Practice {
+
+    /*
+     * Building the function of the swap functions
+     */
+
+     public static void swap(int arr[],int low,int high){
+        int temp = arr[low];
+        arr[low] = arr[high];
+        arr[high] = temp;
+     }
+
+     public static void OptimalRotation_Approach(int arr[]){
+
+        /* Optimal approach to solve this problem what I think is */
+        //Building the swap functions
+
+        //Swapping the first index 0 , 0
+        swap(arr, 0, 0);
+        //Swapping the last index 1, n-1
+        swap(arr, 1, arr.length-1);
+        //Swapping the first and the Last index
+        swap(arr, 0, arr.length-1);
+
+        /*
+         * Time complexity to do this problem is O(1)
+         */
+
+
+     }
+
+     public static void BruteForceapproach(int arr[]){
+
+        int first = arr[0];
+        for (int i = 1; i < arr.length; i++) {  //Time Complexity to solve this problem is O(n)
+            arr[i-1] = arr[i];
+        }
+        arr[arr.length-1] = first;
+
+
+     }
+    public static void main(String[] args) {
+        int arr[] = {1,2,3,4,5,6};
+
+
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i] + " ");
+        }
+    }
+}
