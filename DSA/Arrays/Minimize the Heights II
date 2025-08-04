@@ -1,0 +1,40 @@
+import java.util.*;
+public class Practice {
+
+    public static int minheightfor_k(int nums[],int k){
+        int n = nums.length; //Initializing the length of the array
+
+        // if there is only the single element present in the array
+        if (n == 1) {
+            return 0; //So there is the minimum difference of the zero
+        }
+
+        Arrays.sort(nums); //Sorting the array which will take the O(nLogn) 
+
+        int result = nums[n-1] - nums[0]; //Largest minus the smallest 
+        if (k < 0) {
+          throw new IllegalArgumentException("k must be non-negative");
+        }
+
+        if (k == 0) {
+            return result;
+        }
+        int smallest = nums[0] + k; //The smallest element + k beacuse need to decrese the range
+        int Largest = nums[n-1] - k; //The largest element - k  beacuse need to decrese the range
+
+        for (int i = 0; i < n-1; i++) { //Time Complexity of this code is O(n)
+            int min = Math.min(smallest, nums[i+1]-k);
+            int max = Math.max(Largest, nums[i]+k);
+
+            if (min < 0) continue;
+
+            result = Math.min(result, max - min);
+        }
+        return result;
+
+    }
+    public static void main(String[] args) {
+        int nums[] = {3, 9, 12, 16, 20};
+        System.out.println(minheightfor_k(nums,3));
+    }
+}
