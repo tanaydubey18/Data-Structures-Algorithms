@@ -1,0 +1,22 @@
+import java.math.BigInteger;
+
+public class Practice {
+
+    public static void factorial(int num){
+        BigInteger fact = BigInteger.ONE;
+
+        //Traverse the array to find out the loops 
+        for(int i = 2 ; i <= num ;i++){
+            fact = fact.multiply(BigInteger.valueOf(i));
+        }
+    System.out.println(fact + " ");
+        
+    }
+
+    public static void main(String[] args) {
+        int factorial = 132;
+
+        factorial(factorial);
+
+    }
+}
