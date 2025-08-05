@@ -1,0 +1,39 @@
+import java.util.*;
+
+//Moore Voting Algo
+
+public class Practice {
+
+    public static void main(String[] args) {
+        int nums[] = {3, 4, 2, 2, 1, 2, 3, 3};
+        int k = 4;
+
+        //Moore Voting Algorithm
+        List<Integer> list = new ArrayList<>();
+        int count  = 0;
+        int candidate = -1;
+
+      for(int num : nums){
+        if (count == 0) {
+            candidate = num;
+        }
+        count += candidate == num ?  1 : -1; 
+      }
+
+      //We got the answer in the candidate
+      //Checking the candidate option
+      for (int i = 0; i < nums.length; i++) {
+        if (candidate == nums[i]) {
+            count++;
+        }
+      }
+
+      if (count > nums.length/k) {
+        list.add(candidate);
+      }
+
+      for(Integer elem : list){
+        System.out.print(elem + " ");
+      }
+    }
+}
