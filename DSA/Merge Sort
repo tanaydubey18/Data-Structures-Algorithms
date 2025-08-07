@@ -1,0 +1,40 @@
+
+    public static void MergeSort(int arr[],int si,int ei){
+        int n = arr.length;
+        if (si >= ei) {
+            return;
+        }
+
+        int mid = si + (ei - si)/2;
+
+        MergeSort(arr, si, mid);
+        MergeSort(arr, mid+1, ei);
+        Mergearr(arr,si,mid,ei);
+
+    }
+
+    public static void Mergearr(int arr[],int si,int mid,int ei){
+        int nums[] = new int[ei - si + 1];
+        int start = si;
+        int next = mid+1;
+        int k = 0;
+        while (start <= mid && next <= ei) {
+            if (arr[start] < arr[next]) {
+                nums[k++] = arr[start++];
+            }
+            else if (arr[start] > arr[next]) {
+                nums[k++] = arr[next++];
+            }
+        }
+        while (start <= mid) {
+            nums[k++] = arr[start++];
+        }
+        while (next <= ei) {
+            nums[k++] = arr[next++];
+        }
+
+
+    // Copy sorted array back to original array
+    for (int l = 0; l < nums.length; l++) {
+        arr[si + l] = nums[l];
+    }
