@@ -1,0 +1,35 @@
+public class MinSwapsToGroupElements {
+
+    public static int minSwaps(int[] arr, int k) {
+        int n = arr.length;
+
+        // Step 1: Count how many elements are <= k
+        int countGood = 0;
+        for (int num : arr) {
+            if (num <= k) countGood++;
+        }
+
+        // If there are no good elements or all are good → no swaps needed
+        if (countGood == 0 || countGood == n) return 0;
+
+        // Step 2: Count bad elements (> k) in the first window of size countGood
+        int bad = 0;
+        for (int i = 0; i < countGood; i++) {
+            if (arr[i] > k) bad++;
+        }
+
+        // Step 3: Initialize answer with bad elements count of first window
+        int minSwaps = bad;
+
+        // Step 4: Slide the window
+        for (int i = 0, j = countGood; j < n; i++, j++) {
+            // If element going out is bad → reduce bad count
+            if (arr[i] > k) bad--;
+            // If element coming in is bad → increase bad count
+            if (arr[j] > k) bad++;
+            // Track the minimum
+            minSwaps = Math.min(minSwaps, bad);
+        }
+
+        return minSwaps;
+    }
