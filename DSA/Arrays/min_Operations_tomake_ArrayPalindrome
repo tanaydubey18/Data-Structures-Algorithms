@@ -1,0 +1,25 @@
+public static int min_Operations_tomake_ArrayPalindrome(int nums[]) {
+    int i = 0 , j = nums.length - 1; // two pointers from both ends
+    int ans = 0; // counter for operations
+
+    while (i < j) {
+        if (nums[i] == nums[j]) {
+            // If elements match, move both pointers inward
+            i++;
+            j--;
+        }
+        else if (nums[i] < nums[j]) {
+            // If left element is smaller → merge it with next element
+            i++;
+            nums[i] += nums[i - 1]; // merge nums[i-1] into nums[i]
+            ans++; // count one merge
+        }
+        else if (nums[j] < nums[i]) {
+            // If right element is smaller → merge it with previous element
+            j--;
+            nums[j] += nums[j + 1]; // merge nums[j+1] into nums[j]
+            ans++;
+        }
+    }
+    return ans; // total operations
+}
